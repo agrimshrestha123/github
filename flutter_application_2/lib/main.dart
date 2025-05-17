@@ -1,67 +1,51 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  MyApp({super.key});
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  String buttonName = 'click';
-  int currentIndex = 0;
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: const Text('this is appbar')),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    buttonName = 'do it again';
-                  });
-                },
-                child: Text(buttonName),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    buttonName = 'donot it again';
-                  });
-                },
-                child: Text(buttonName),
-              ),
-            ],
-          ),
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.favorite, color: Colors.pink),
-              label: 'favourite',
+    return const MaterialApp(title: 'Flutter App', home: MyHomePage());
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('AboutListTile Example')),
+      drawer: Drawer(
+        child: ListView(
+          children: const <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(color: Colors.blue),
+              child: Text('Menu', style: TextStyle(color: Colors.white)),
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: 'settings',
+            AboutListTile(
+              icon: Icon(Icons.info),
+              applicationIcon: FlutterLogo(),
+              applicationLegalese: '© 2025 My Company',
+              applicationName: 'Flutter App',
+              applicationVersion: 'Version 0.0.1',
+              aboutBoxChildren: [
+                Padding(
+                  padding: EdgeInsets.only(top: 10),
+                  child: Text('This is an app created using Flutter.'),
+                ),
+              ],
             ),
           ],
-          // backgroundColor: const Color.fromARGB(255, 145, 174, 198),
-          currentIndex: currentIndex,
-          onTap: (int index) {
-            setState(() {
-              currentIndex = index;
-            });
-          },
+        ),
+      ),
+      body: const Center(
+        child: Text(
+          'Welcome to Flutter! Open the drawer to see the About section.',
         ),
       ),
     );
