@@ -1,23 +1,8 @@
 import 'package:flutter/material.dart';
 
-// @override
-// State<Widget001> createState() => _Widget001State();
-
-// class _Widget001State extends State<Widget001> {}
-
 void main() {
   runApp(
     MaterialApp(
-      return Center(child: ElevatedButton( child: const Text('show about dialog'),onPressed: (){showDialog(context: context, builder: (context)=> const AboutDialog(
-        applicationIcon: FlutterLogo(),
-        applicationLegalese: 'legalese',
-        applicationName:  'flutter app',
-        applicationVersion: 'verson 1',
-        children: [
-          Text('this is a text created by flutter mapp'),
-        ],
-
-      ),)},),)
       home: Scaffold(
         backgroundColor: const Color.fromARGB(255, 39, 34, 101),
         body: Column(
