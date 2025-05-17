@@ -1,52 +1,69 @@
 import 'package:flutter/material.dart';
 
-// @override
-// State<Widget001> createState() => _Widget001State();
-
-// class _Widget001State extends State<Widget001> {}
-
 void main() {
-  runApp(
-    MaterialApp(
-      return Center(child: ElevatedButton( child: const Text('show about dialog'),onPressed: (){showDialog(context: context, builder: (context)=> const AboutDialog(
-        applicationIcon: FlutterLogo(),
-        applicationLegalese: 'legalese',
-        applicationName:  'flutter app',
-        applicationVersion: 'verson 1',
-        children: [
-          Text('this is a text created by flutter mapp'),
-        ],
+  runApp(MyApp());
+}
 
-      ),)},),)
+class MyApp extends StatefulWidget {
+  MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  String buttonName = 'click';
+  int currentIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       home: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 39, 34, 101),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          // spacing: 20,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(width: 100, height: 100, color: Colors.yellow),
-            SizedBox(height: 40),
-            Text(
-              "agrim shrestha",
-              style: TextStyle(
-                fontSize: 50,
-                fontWeight: FontWeight.bold,
-                // fontStyle: FontStyle.italic,
-                color: const Color.fromARGB(255, 39, 34, 101),
-                backgroundColor: const Color.fromARGB(255, 217, 73, 73),
+        appBar: AppBar(title: const Text('this is appbar')),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    buttonName = 'do it again';
+                  });
+                },
+                child: Text(buttonName),
               ),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    buttonName = 'donot it again';
+                  });
+                },
+                child: Text(buttonName),
+              ),
+            ],
+          ),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.favorite, color: Colors.pink),
+              label: 'favourite',
             ),
-            SizedBox(height: 20),
-            Container(
-              width: 100,
-              height: 100,
-              color: const Color.fromARGB(255, 59, 255, 157),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: 'settings',
             ),
           ],
+          // backgroundColor: const Color.fromARGB(255, 145, 174, 198),
+          currentIndex: currentIndex,
+          onTap: (int index) {
+            setState(() {
+              currentIndex = index;
+            });
+          },
         ),
       ),
-    ),
-  );
+    );
+  }
 }
-//flutter widgets playlist 215 in flutte mapp
