@@ -11,7 +11,9 @@ void main() {
           actions: [Icon(Icons.more_vert)],
         ),
         body: SingleChildScrollView(
-          child: Column(children: [NewsCard(), NewsCard(), NewsCard()]),
+          child: Column(
+            children: [NewsCard(), NewsCard(), NewsCard(), NewsCard()],
+          ),
         ),
       ),
     ),
