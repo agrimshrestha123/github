@@ -4,34 +4,40 @@ void main() {
   runApp(
     MaterialApp(
       home: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 39, 34, 101),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          // spacing: 20,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(width: 100, height: 100, color: Colors.yellow),
-            SizedBox(height: 40),
-            Text(
-              "agrim shrestha",
-              style: TextStyle(
-                fontSize: 50,
-                fontWeight: FontWeight.bold,
-                // fontStyle: FontStyle.italic,
-                color: const Color.fromARGB(255, 39, 34, 101),
-                backgroundColor: const Color.fromARGB(255, 217, 73, 73),
+        appBar: AppBar(
+          leading: Icon(Icons.home_outlined),
+          centerTitle: true,
+          title: Text('Trending'),
+          actions: [Icon(Icons.more_vert)],
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Image.asset(
+                "images/this.jpg",
+                width: double.infinity,
+                height: 300,
+                fit: BoxFit.cover,
               ),
-            ),
-            SizedBox(height: 20),
-            Container(
-              width: 100,
-              height: 100,
-              color: const Color.fromARGB(255, 59, 255, 157),
-            ),
-          ],
+              SizedBox(height: 10),
+              Text(
+                'Russian Warship: Moskva sinks in Black Sea',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+              ),
+              Row(
+                children: [
+                  Icon(Icons.schedule),
+                  Text('4hr ago'),
+                  SizedBox(width: 10),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     ),
   );
 }
-//flutter widgets playlist 215 in flutte mapp
+//60
