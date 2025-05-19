@@ -11,6 +11,7 @@ class NewsCard extends StatelessWidget {
   final String imageUrl;
   final String title;
   final String time;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
