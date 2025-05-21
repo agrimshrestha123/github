@@ -7,11 +7,12 @@ class NewsCard extends StatelessWidget {
     required this.imageUrl,
     required this.time,
     required this.title,
+    required this.description,
   });
   final String imageUrl;
   final String title;
   final String time;
-
+  final String description;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -36,7 +37,12 @@ class NewsCard extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) {
-                    return NewsDetailScreen();
+                    return NewsDetailScreen(
+                      title: title,
+                      imageUrl: imageUrl,
+                      time: time,
+                      description: description,
+                    );
                   },
                 ),
               );
